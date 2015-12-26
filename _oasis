@@ -1,0 +1,17 @@
+Name: edn
+Version: 0.1
+Synopsis: EDN parser
+Authors: Me <me@myhost.com>
+License: LGPL with OCaml linking exception
+
+Description: EDN parser
+Homepage: http://github.com/prepor/ocaml-parser
+OASISFormat: 0.4
+BuildTools: ocamlbuild
+Plugins: META (0.4), DevFiles (0.4)
+
+Library edn
+  Path: src
+  Modules: Edn
+  InternalModules: Read, Parser, Common, Writer, Reader, Json, Util
+    
