@@ -29,6 +29,8 @@ and to_json_pair = function
   | None, v -> v
 and to_json_key = function
   | `Keyword v -> to_json_pair v
+  | `String v -> v
+  | `Symbol v -> to_json_pair v
   | v -> Writer.to_string v
 
 let rec from_json ?(keywordize=false) (json : json) : Common.value =

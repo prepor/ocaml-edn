@@ -23,6 +23,20 @@ module Errors : sig
   exception Error of string
 end
 
+module Json : sig
+  type json = [ `Assoc of (string * json) list
+              | `Bool of bool
+              | `Float of float
+              | `Int of int
+              | `List of json list
+              | `Null
+              | `String of string ]
+
+  val from_json : ?keywordize:bool -> json -> t
+
+  val to_json : t -> json
+end
+
 module Util : sig
   exception Type_error of string * t
 
