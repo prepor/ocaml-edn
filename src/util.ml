@@ -94,7 +94,9 @@ let to_int_option = function
 
 let to_list = function
   | `List l -> l
-  | edn -> typerr "Expected array, got " edn
+  | `Vector l -> l
+  | `Set l -> l
+  | edn -> typerr "Expected list, got " edn
 
 let to_string = function
   | `String s -> s

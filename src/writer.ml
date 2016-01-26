@@ -23,7 +23,8 @@ and write_assoc buf xs =
   List.iter (fun (k, v) ->
       write buf k;
       Buffer.add_char buf ' ';
-      write buf v)
+      write buf v;
+      Buffer.add_char buf ' ';)
     xs;
   Buffer.add_char buf '}';
 and write_list buf xs =

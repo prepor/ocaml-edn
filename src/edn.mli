@@ -42,6 +42,8 @@ module Util : sig
 
   exception Undefined of string * t
 
+  val typerr : string -> t -> 'a
+
   val keys : t -> t list
 
   val values : t -> t list

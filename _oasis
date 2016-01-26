@@ -12,6 +12,4 @@ Plugins: META (0.4), DevFiles (0.4)
 
 Library edn
   Path: src
-  Modules: Edn
-  InternalModules: Read, Parser, Common, Writer, Reader, Json, Util
-    
+  Modules: Edn  
