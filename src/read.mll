@@ -40,6 +40,9 @@ rule read =
   parse
   | white    { read lexbuf }
   | discard  { read lexbuf |> ignore; read lexbuf }
+  | "true"   { TRUE }
+  | "false"  { FALSE }
+  | "nil"    { NIL }
   | newline  { next_line lexbuf; read lexbuf }
   | int      { INT (int_of_string v) }
   | big_int  { BIG_INT v }
@@ -49,10 +52,7 @@ rule read =
   | keyword  { KEYWORD (v) }
   | q_keyword{ Q_KEYWORD (prefix, v) }
   | tag      { TAG (v) }
-  | q_tag    { Q_TAG (prefix, v) }
-  | "true"   { TRUE }
-  | "false"  { FALSE }
-  | "nil"    { NIL }
+  | q_tag    { Q_TAG (prefix, v) }  
   | '"'      { read_string (Buffer.create 17) lexbuf }
   | '('      { LEFT_PAREN }
   | ')'      { RIGHT_PAREN }
