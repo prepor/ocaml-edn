@@ -1,6 +1,6 @@
 {
 open Lexing
-open Parser
+open Edn_parser
 
 let next_line lexbuf =
   let pos = lexbuf.lex_curr_p in
