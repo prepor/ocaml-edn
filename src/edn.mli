@@ -19,6 +19,8 @@ val to_string : t -> string
 
 val from_string : string -> t
 
+val from_channel : in_channel -> t
+
 module Errors : sig
   exception Error of string
 end
