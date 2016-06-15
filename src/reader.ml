@@ -1,5 +1,10 @@
-let from_string s =
-  let lexbuf = Lexing.from_string s in
+let parse lexbuf =
   Edn_parser.prog Read.read lexbuf |> function
   | Some v -> v
-  | None -> raise (Common.Error "No EDN")
+  | None -> raise End_of_file
+
+let from_string s =
+  parse (Lexing.from_string s)
+
+let from_channel ch =
+  parse (Lexing.from_channel ch)
