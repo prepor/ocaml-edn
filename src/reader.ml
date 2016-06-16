@@ -12,6 +12,4 @@ let from_channel ch =
 let stream_from_channel ch =
   let lexbuf = Lexing.from_channel ch in
   Stream.from @@ fun _ ->
-    match parse lexbuf with
-    | v -> Some v
-    | exception End_of_file -> None
+    Edn_parser.prog Read.read lexbuf
