@@ -8,3 +8,8 @@ let from_string s =
 
 let from_channel ch =
   parse (Lexing.from_channel ch)
+
+let stream_from_channel ch =
+  let lexbuf = Lexing.from_channel ch in
+  let f i = Edn_parser.prog Read.read lexbuf in
+  Stream.from f
