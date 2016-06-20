@@ -16,7 +16,7 @@ let big_int = int 'N'
 
 let frac = '.' digit*
 let exp = ['e' 'E'] ['-' '+']? digit+
-let float = digit* frac? exp?
+let float = int frac? exp?
 
 (* part 3 *)
 let white = [' ' '\t' ',']+
@@ -24,7 +24,7 @@ let discard = "#_"
 let newline = '\r' | '\n' | "\r\n"
 let first_symbol = ['a'-'z' 'A'-'Z' '*' '!' '_' '?' '$' '%' '&' '=' '<' '>']
 let non_numeric = first_symbol | [':' '#' '-' '+' '.']
-let symbol = (first_symbol (non_numeric | [ '0'-'9'])*) | (['-' '+' '.'] non_numeric (non_numeric | [ '0'-'9'])*)
+let symbol = (first_symbol (non_numeric | ['0'-'9'])*) | (['-' '+' '.'] (non_numeric (non_numeric | ['0'-'9'])*)?)
 let q_symbol = (symbol as prefix) '/' (symbol as v)
 
 let keyword = ':' (symbol as v)
@@ -52,7 +52,7 @@ rule read =
   | keyword  { KEYWORD (v) }
   | q_keyword{ Q_KEYWORD (prefix, v) }
   | tag      { TAG (v) }
-  | q_tag    { Q_TAG (prefix, v) }  
+  | q_tag    { Q_TAG (prefix, v) }
   | '"'      { read_string (Buffer.create 17) lexbuf }
   | '('      { LEFT_PAREN }
   | ')'      { RIGHT_PAREN }
