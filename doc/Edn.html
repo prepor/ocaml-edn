@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Edn" rel="Chapter" href="Edn.html"><title>Edn</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Edn.html">Edn</a></h1>
+
+<pre><span class="keyword">module</span> Edn: <code class="code"><span class="keyword">sig</span></code> <a href="Edn.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type">[ `Assoc of (<a href="Edn.html#TYPEt">t</a> * <a href="Edn.html#TYPEt">t</a>) list<br>       | `BigInt of string<br>       | `Bool of bool<br>       | `Char of bytes<br>       | `Decimal of string<br>       | `Float of float<br>       | `Int of int<br>       | `Keyword of string option * string<br>       | `List of <a href="Edn.html#TYPEt">t</a> list<br>       | `Null<br>       | `Set of <a href="Edn.html#TYPEt">t</a> list<br>       | `String of string<br>       | `Symbol of string option * string<br>       | `Tag of string option * string * <a href="Edn.html#TYPEt">t</a><br>       | `Vector of <a href="Edn.html#TYPEt">t</a> list ]</code> </pre>
+
+
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Edn.html#TYPEt">t</a> -> string</code></pre>
+<pre><span id="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">string -> <a href="Edn.html#TYPEt">t</a></code></pre>
+<pre><span id="VALfrom_channel"><span class="keyword">val</span> from_channel</span> : <code class="type">Pervasives.in_channel -> <a href="Edn.html#TYPEt">t</a></code></pre>
+<pre><span id="VALstream_from_channel"><span class="keyword">val</span> stream_from_channel</span> : <code class="type">Pervasives.in_channel -> <a href="Edn.html#TYPEt">t</a> Stream.t</code></pre>
+<pre><span class="keyword">module</span> <a href="Edn.Errors.html">Errors</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Edn.Errors.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span class="keyword">module</span> <a href="Edn.Json.html">Json</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Edn.Json.html">..</a> <code class="code"><span class="keyword">end</span></code></pre>
+<pre><span class="keyword">module</span> <a href="Edn.Util.html">Util</a>: <code class="code"><span class="keyword">sig</span></code> <a href="Edn.Util.html">..</a> <code class="code"><span class="keyword">end</span></code></pre></body></html>

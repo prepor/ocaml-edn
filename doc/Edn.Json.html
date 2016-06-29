@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Edn.Errors.html">
+<link rel="next" href="Edn.Util.html">
+<link rel="Up" href="Edn.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Edn" rel="Chapter" href="Edn.html"><title>Edn.Json</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Edn.Errors.html" title="Edn.Errors">Previous</a>
+&nbsp;<a class="up" href="Edn.html" title="Edn">Up</a>
+&nbsp;<a class="post" href="Edn.Util.html" title="Edn.Util">Next</a>
+</div>
+<h1>Module <a href="type_Edn.Json.html">Edn.Json</a></h1>
+
+<pre><span class="keyword">module</span> Json: <code class="code"><span class="keyword">sig</span></code> <a href="Edn.Json.html">..</a> <code class="code"><span class="keyword">end</span></code></pre><hr width="100%">
+
+<pre><span id="TYPEjson"><span class="keyword">type</span> <code class="type"></code>json</span> = <code class="type">[ `Assoc of (string * <a href="Edn.Json.html#TYPEjson">json</a>) list<br>       | `Bool of bool<br>       | `Float of float<br>       | `Int of int<br>       | `List of <a href="Edn.Json.html#TYPEjson">json</a> list<br>       | `Null<br>       | `String of string ]</code> </pre>
+
+
+<pre><span id="VALfrom_json"><span class="keyword">val</span> from_json</span> : <code class="type">?keywordize:bool -> <a href="Edn.Json.html#TYPEjson">json</a> -> <a href="Edn.html#TYPEt">Edn.t</a></code></pre>
+<pre><span id="VALto_json"><span class="keyword">val</span> to_json</span> : <code class="type"><a href="Edn.html#TYPEt">Edn.t</a> -> <a href="Edn.Json.html#TYPEjson">json</a></code></pre></body></html>
