@@ -1,11 +1,9 @@
-# OASIS_START
-# DO NOT EDIT (digest: 8fa7c9208039ddf4db8b4e3d35da2329)
-Edn
-Common
-Util
-Reader
-Writer
+Edn_json
+Edn_util
+Edn_read
+Edn_writer
 Edn_parser
-Json
-Read
-# OASIS_STOP
+Edn_common
+Edn
+
+

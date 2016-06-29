@@ -1,3 +1,4 @@
+PKG ounit topkg
 S src
 B _build/src
 

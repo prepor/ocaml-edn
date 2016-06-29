@@ -10,13 +10,15 @@ let next_line lexbuf =
     }
 }
 let digit = ['0'-'9']
-let int = (['-' '+']? (digit as v)) | (['-']? ['1'-'9'] digit* as v) | (['+']? (['1'-'9'] digit* as v))
+let int = (['-' '+']? digit as v) | (['-']? ['1'-'9'] digit* as v) | (['+']? (['1'-'9'] digit* as v))
 
 let big_int = int 'N'
 
 let frac = '.' digit*
 let exp = ['e' 'E'] ['-' '+']? digit+
 let float = int frac? exp?
+
+let decimal = (float as v) 'M'
 
 (* part 3 *)
 let white = [' ' '\t' ',']+
@@ -47,6 +49,7 @@ rule read =
   | int      { INT (int_of_string v) }
   | big_int  { BIG_INT v }
   | float    { FLOAT (float_of_string (Lexing.lexeme lexbuf)) }
+  | decimal  { DECIMAL v }  
   | symbol   { SYMBOL (Lexing.lexeme lexbuf) }
   | q_symbol { Q_SYMBOL (prefix, v) }
   | keyword  { KEYWORD (v) }
@@ -61,8 +64,13 @@ rule read =
   | '}'      { RIGHT_BRACE }
   | '['      { LEFT_BRACK }
   | ']'      { RIGHT_BRACK }
-  | _ { raise (Common.Error ("Unexpected char: " ^ Lexing.lexeme lexbuf)) }
+  | ';'      { read_comment lexbuf }
+  | _ { raise (Edn_common.Error ("Unexpected char: " ^ Lexing.lexeme lexbuf)) }
   | eof      { EOF }
+and read_comment =
+  parse
+  | '\n' { read lexbuf }
+  | _ { read_comment lexbuf } 
 and read_string buf =
   parse
   | '"'       { STRING (Buffer.contents buf) }
@@ -75,5 +83,5 @@ and read_string buf =
     { Buffer.add_string buf (Lexing.lexeme lexbuf);
       read_string buf lexbuf
     }
-  | _ { raise (Common.Error ("Illegal string character: " ^ Lexing.lexeme lexbuf)) }
-  | eof { raise (Common.Error ("String is not terminated")) }
+  | _ { raise (Edn_common.Error ("Illegal string character: " ^ Lexing.lexeme lexbuf)) }
+  | eof { raise (Edn_common.Error ("String is not terminated")) }

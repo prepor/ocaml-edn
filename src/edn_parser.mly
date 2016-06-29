@@ -1,5 +1,6 @@
 %token <int> INT
 %token <string> BIG_INT
+%token <string> DECIMAL
 %token <float> FLOAT
 %token <string> STRING
 %token <string> SYMBOL
@@ -19,7 +20,7 @@
 %token FALSE
 %token NIL
 %token EOF
-%start <Common.value option> prog
+%start <Edn_common.value option> prog
 %%
 prog:
   | EOF       { None }
@@ -55,6 +56,8 @@ value:
     { `BigInt i }
   | x = FLOAT
     { `Float x }
+  | x = DECIMAL
+    { `Decimal x }
   | TRUE
     { `Bool true }
   | FALSE

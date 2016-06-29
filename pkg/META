@@ -1,0 +1,7 @@
+description = "Parsing library for EDN format"
+version = "%%VERSION%%"
+requires = ""
+archive(byte) = "edn.cma"
+archive(native) = "edn.cmxa"
+plugin(byte) = "edn.cma"
+plugin(native) = "edn.cmxs"

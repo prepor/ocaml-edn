@@ -6,7 +6,7 @@ type json = [ `Assoc of (string * json) list
             | `Null
             | `String of string ]
 
-let rec to_json (edn : Common.value) =
+let rec to_json (edn : Edn_common.value) =
   match edn with
   | `Keyword v -> `String (to_json_pair v)
   | `Symbol v -> `String (to_json_pair v)
@@ -31,9 +31,9 @@ and to_json_key = function
   | `Keyword v -> to_json_pair v
   | `String v -> v
   | `Symbol v -> to_json_pair v
-  | v -> Writer.to_string v
+  | v -> Edn_writer.to_string v
 
-let rec from_json ?(keywordize=false) (json : json) : Common.value =
+let rec from_json ?(keywordize=false) (json : json) : Edn_common.value =
   match json with
   | `Assoc xs -> `Assoc (List.map (fun (k, v) -> ((if keywordize then `Keyword (None, k) else `String k),
                                                   (from_json v)))

@@ -1,7 +1,7 @@
-exception Type_error of string * Common.value
-exception Undefined of string * Common.value
+exception Type_error of string * Edn_common.value
+exception Undefined of string * Edn_common.value
 
-let typeof (v : Common.value) = match v with
+let typeof (v : Edn_common.value) = match v with
   | `Assoc _ -> "map"
   | `Bool _ -> "bool"
   | `Float _ -> "float"
@@ -26,7 +26,7 @@ let assoc name m =
 
 let member name = function
   | `Assoc m -> assoc name m
-  | edn -> typerr ("Can't get member '" ^ (Writer.to_string name) ^ "' of non-map type ") edn
+  | edn -> typerr ("Can't get member '" ^ (Edn_writer.to_string name) ^ "' of non-map type ") edn
 
 let index i v =
   let find l =
@@ -119,7 +119,7 @@ let keys o =
 let values o =
   to_assoc o |> List.map (fun (_, value) -> value)
 
-let combine (first : Common.value) (second : Common.value) =
+let combine (first : Edn_common.value) (second : Edn_common.value) =
   match (first, second) with
-  | (`Assoc a, `Assoc b) -> (`Assoc (a @ b) : Common.value)
+  | (`Assoc a, `Assoc b) -> (`Assoc (a @ b) : Edn_common.value)
   | (a, b) -> raise (Invalid_argument "Expected two objects, check inputs")

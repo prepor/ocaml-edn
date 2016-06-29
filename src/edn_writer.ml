@@ -1,4 +1,4 @@
-let rec write buf (edn : Common.value) =
+let rec write buf (edn : Edn_common.value) =
   match edn with
   | `Assoc xs -> write_assoc buf xs
   | `Vector xs -> write_vector buf xs
@@ -47,9 +47,9 @@ and write_float buf v =
 and write_nil buf =
   Buffer.add_string buf "null"
 and write_big_int buf v =
-  Buffer.add_string buf v
+  Buffer.add_string buf (v ^ "N")
 and write_decimal buf v =
-  Buffer.add_string buf v
+  Buffer.add_string buf (v ^ "M")
 and write_symbol buf = function
   | (Some prefix), v ->
     Buffer.add_string buf prefix;
@@ -79,3 +79,4 @@ let to_string edn =
   let buf = Buffer.create 256 in
   write buf edn;
   Buffer.to_bytes buf
+
