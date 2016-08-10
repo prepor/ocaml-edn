@@ -10,7 +10,7 @@ let next_line lexbuf =
     }
 }
 let digit = ['0'-'9']
-let int = (['-' '+']? digit as v) | (['-']? ['1'-'9'] digit* as v) | (['+']? (['1'-'9'] digit* as v))
+let int = ('+'? (digit as v)) | ('-' digit as v) | (['-']? ['1'-'9'] digit* as v) | (['+']? (['1'-'9'] digit* as v))
 
 let big_int = int 'N'
 
