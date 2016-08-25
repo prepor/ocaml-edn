@@ -45,7 +45,7 @@ and write_int buf v =
 and write_float buf v =
   Buffer.add_string buf (string_of_float v)
 and write_nil buf =
-  Buffer.add_string buf "null"
+  Buffer.add_string buf "nil"
 and write_big_int buf v =
   Buffer.add_string buf (v ^ "N")
 and write_decimal buf v =
