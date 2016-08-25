@@ -28,9 +28,9 @@ and write_assoc buf xs =
     xs;
   Buffer.add_char buf '}';
 and write_list buf xs =
-  Buffer.add_char buf '{';
+  Buffer.add_char buf '(';
   List.iter (write_and_whitespace buf) xs;
-  Buffer.add_char buf '}'
+  Buffer.add_char buf ')'
 and write_vector buf xs =
   Buffer.add_char buf '[';
   List.iter (write_and_whitespace buf) xs;
@@ -79,4 +79,3 @@ let to_string edn =
   let buf = Buffer.create 256 in
   write buf edn;
   Buffer.to_bytes buf
-
