@@ -16,7 +16,7 @@ let basic_parsing1 _ =
   edn_roundtrip "nil" "nil" `Null;
   edn_roundtrip "true" "true" (`Bool true);
   edn_roundtrip "false" "false" (`Bool false);
-  edn_parse "string" "\"hello\nworld\"" (`String "hello\nworld");
+  edn_roundtrip "string" "\"hello\\nworld\"" (`String "hello\nworld");
   edn_roundtrip "symbol" "foo" (`Symbol (None, "foo"));
   edn_roundtrip "symbol with namespace" "bar/foo:#" (`Symbol ((Some "bar"), "foo:#"));
   edn_roundtrip "keyword" ":foo" (`Keyword (None, "foo"));
@@ -48,7 +48,7 @@ let basic_parsing1 _ =
 
   edn_roundtrip "vector" "[1 \"2\" :a ]" (`Vector [`Int 1; `String "2"; `Keyword (None, "a")]);
 
-  edn_parse "map" "{:a 1, \"foo\" :bar, [1 2 3] four}"
+  edn_roundtrip "map" "{:a 1 \"foo\" :bar [1 2 3 ] four }"
     (`Assoc [(`Keyword (None, "a"), `Int 1);
              (`String "foo", `Keyword (None, "bar"));
              (`Vector [`Int 1; `Int 2; `Int 3], `Symbol (None, "four"))]);
@@ -62,8 +62,14 @@ let basic_parsing1 _ =
 
   edn_parse "discard" "[1 2 #_foo 42]" (`Vector [`Int 1; `Int 2; `Int 42]);
 
-  edn_parse "nested"
-    "[1 {:foo (1 2)} #{\"hello\"}]"
+  edn_parse "ignore commas" "{:a 1, \"foo\" :bar, [1 2 3 ] four }"
+    (`Assoc [(`Keyword (None, "a"), `Int 1);
+             (`String "foo", `Keyword (None, "bar"));
+             (`Vector [`Int 1; `Int 2; `Int 3], `Symbol (None, "four"))]);
+
+
+  edn_roundtrip "nested"
+    "[1 {:foo (1 2 ) } #{\"hello\" } ]"
     (`Vector [`Int 1;
               `Assoc [(`Keyword (None, "foo"), `List [`Int 1; `Int 2])];
               `Set [`String "hello"]]);
