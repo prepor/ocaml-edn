@@ -28,9 +28,9 @@ and write_assoc buf xs =
     xs;
   Buffer.add_char buf '}';
 and write_list buf xs =
-  Buffer.add_char buf '{';
+  Buffer.add_char buf '(';
   List.iter (write_and_whitespace buf) xs;
-  Buffer.add_char buf '}'
+  Buffer.add_char buf ')'
 and write_vector buf xs =
   Buffer.add_char buf '[';
   List.iter (write_and_whitespace buf) xs;
@@ -45,7 +45,7 @@ and write_int buf v =
 and write_float buf v =
   Buffer.add_string buf (string_of_float v)
 and write_nil buf =
-  Buffer.add_string buf "null"
+  Buffer.add_string buf "nil"
 and write_big_int buf v =
   Buffer.add_string buf (v ^ "N")
 and write_decimal buf v =
@@ -79,4 +79,3 @@ let to_string edn =
   let buf = Buffer.create 256 in
   write buf edn;
   Buffer.to_bytes buf
-

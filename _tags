@@ -4,4 +4,4 @@ true: use_menhir
 <src> : include, package(menhir)
 <test> : include
 
-<test/*> : package(ounit)
+<test/*> : package(oUnit)
