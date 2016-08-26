@@ -1,3 +1,13 @@
+v0.1.4 2016-08-26
+--------------------------
+
+thanks to @mpenet
+
+- emit correct nil
+- fix EDN List writer
+- fix _tags for case sensitive file systems
+- add some roundtrip tests
+
 v0.1.3 2016-08-10
 --------------------------
 
