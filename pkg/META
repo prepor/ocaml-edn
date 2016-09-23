@@ -5,3 +5,14 @@ archive(byte) = "edn.cma"
 archive(native) = "edn.cmxa"
 plugin(byte) = "edn.cma"
 plugin(native) = "edn.cmxs"
+
+package "cconv" (
+  description = "Cconv's encoder and decoder"
+  version = "%%VERSION_NUM%%"
+  requires = "edn cconv"
+  archive(byte) = "edn_cconv.cma"
+  archive(native) = "edn_cconv.cmxa"
+  plugin(byte) = "edn_cconv.cma"
+  plugin(native) = "edn_cconv.cmxs"
+  exists_if = "edn_cconv.cma"
+)

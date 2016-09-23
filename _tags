@@ -2,6 +2,7 @@ true: bin_annot
 true: use_menhir
 
 <src> : include, package(menhir)
+<src/edn_cconv.*> : package(cconv)
 <test> : include
 
 <test/*> : package(oUnit)

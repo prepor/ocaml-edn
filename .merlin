@@ -1,4 +1,4 @@
-PKG ounit topkg
+PKG ounit topkg cconv
 S src
 B _build/src
 
