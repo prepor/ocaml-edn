@@ -18,19 +18,22 @@ instructions.
 
 ## Usage
 
-    Edn.from_string "{:a #foo/bar [1 2 3]}";;
-    - : Edn.t =                                                                                     `Assoc                                                                                            [(`Keyword (None, "a"),
-        `Tag (Some "foo", "bar", `Vector [`Int 1; `Int 2; `Int 3]))]
+``` ocaml
+Edn.from_string "{:a #foo/bar [1 2 3]}";;
+- : Edn.t = `Assoc [(`Keyword (None, "a"), `Tag (Some "foo", "bar", `Vector [`Int 1; `Int 2; `Int 3]))]
+```
 
 ## PPX generator
 
 There is [cconv][cconv] encoder/decoder in `edn.cconv` package. You can use it with `cconv.ppx` to generate encoders/decoders from/to your types.
 
-    type book = { title : string; quantity : int} [@@deriving cconv]
-    type library = { books : book list } [@@deriving cconv]
+``` ocaml
+type book = { title : string; quantity : int} [@@deriving cconv]
+type library = { books : book list } [@@deriving cconv]
 
-    Edn_cconv.of_string_exn decode_library "{:books [{:title \"The Catcher in the Rye\" :quantity 10}]}";;
-    - : library = {books = [{title = "The Catcher in the Rye"; quantity = 10}]}
+Edn_cconv.of_string_exn decode_library "{:books [{:title \"The Catcher in the Rye\" :quantity 10}]}";;
+- : library = {books = [{title = "The Catcher in the Rye"; quantity = 10}]}
+```
 
 ## Documentation
 
