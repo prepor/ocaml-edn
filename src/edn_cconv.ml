@@ -22,7 +22,8 @@ let source =
       | `Assoc l -> dec.D.accept_record src (map_keys l)
       | `Decimal s -> dec.D.accept_string src s
       | `BigInt s -> dec.D.accept_string src s
-      | `Tag (prefix, v, form) -> dec.D.accept_unit src ()
+      | `Tag (None, v, form) -> dec.D.accept_tuple src [`String v; form]
+      | `Tag (Some prefix, v, form) -> dec.D.accept_tuple src [`String (Printf.sprintf "%s/%s" prefix v); form]
       | `Keyword (None, v) -> dec.D.accept_string src v
       | `Keyword (Some prefix, v) -> dec.D.accept_string src (Printf.sprintf "%s/%s" prefix v)
       | `Symbol (None, v) -> dec.D.accept_string src v
