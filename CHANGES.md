@@ -1,7 +1,7 @@
 v0.1.5 2016-12-30
 --------------------------
 
-- better formatting in wirte (thanks to @ul)
+- better formatting in write (thanks to @ul)
 - char represented by string not bytes
 
 v0.1.4 2016-08-26
