@@ -7,7 +7,7 @@ let rec write buf (edn : Edn_common.value) =
   | `Int v -> write_int buf v
   | `Float v -> write_float buf v
   | `String v -> write_string buf v
-  | `Char bytes -> write_char buf bytes
+  | `Char s -> write_char buf s
   | `Keyword v -> write_keyword buf v
   | `Symbol v -> write_symbol buf v
   | `Decimal v -> write_decimal buf v

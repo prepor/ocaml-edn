@@ -6,7 +6,7 @@ type value = [
   | `Null
   | `Bool of bool
   | `String of string
-  | `Char of bytes
+  | `Char of string
   | `Symbol of (string option * string)
   | `Keyword of (string option * string)
   | `Int of int
