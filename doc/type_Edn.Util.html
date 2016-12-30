@@ -9,27 +9,27 @@
 <link title="Edn" rel="Chapter" href="Edn.html"><title>Edn.Util</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Type_error</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;*&nbsp;<span class="constructor">Edn</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Undefined</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;*&nbsp;<span class="constructor">Edn</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;typerr&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;keys&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;values&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;combine&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;member&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;index&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;map&nbsp;:&nbsp;(<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_assoc&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Edn</span>.t&nbsp;*&nbsp;<span class="constructor">Edn</span>.t)&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_option&nbsp;:&nbsp;(<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_bool&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_bool_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_number&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_number_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_float&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_float_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_int&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_int_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_list&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Type_error</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;*&nbsp;<span class="constructor">Edn</span>.t
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Undefined</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;*&nbsp;<span class="constructor">Edn</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;typerr&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;keys&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;values&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;combine&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;member&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;index&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;map&nbsp;:&nbsp;(<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_assoc&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Edn</span>.t&nbsp;*&nbsp;<span class="constructor">Edn</span>.t)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_option&nbsp;:&nbsp;(<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_bool&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_bool_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_number&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_number_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_float&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_float_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_int&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_int_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_list&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string_option&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option
 <span class="keyword">end</span></code></body></html>

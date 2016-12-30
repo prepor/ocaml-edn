@@ -9,15 +9,15 @@
 <link title="Edn" rel="Chapter" href="Edn.html"><title>Edn.Json</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;json&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Assoc</span>&nbsp;<span class="keyword">of</span>&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Edn</span>.<span class="constructor">Json</span>.json)&nbsp;list<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bool</span>&nbsp;<span class="keyword">of</span>&nbsp;bool<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Float</span>&nbsp;<span class="keyword">of</span>&nbsp;float<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Int</span>&nbsp;<span class="keyword">of</span>&nbsp;int<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">List</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Edn</span>.<span class="constructor">Json</span>.json&nbsp;list<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Null</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">String</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;]<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;from_json&nbsp;:&nbsp;?keywordize:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.<span class="constructor">Json</span>.json&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_json&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.<span class="constructor">Json</span>.json<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;json&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Assoc</span>&nbsp;<span class="keyword">of</span>&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Edn</span>.<span class="constructor">Json</span>.json)&nbsp;list
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bool</span>&nbsp;<span class="keyword">of</span>&nbsp;bool
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Float</span>&nbsp;<span class="keyword">of</span>&nbsp;float
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Int</span>&nbsp;<span class="keyword">of</span>&nbsp;int
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">List</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Edn</span>.<span class="constructor">Json</span>.json&nbsp;list
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Null</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">String</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;]
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;from_json&nbsp;:&nbsp;?keywordize:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.<span class="constructor">Json</span>.json&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_json&nbsp;:&nbsp;<span class="constructor">Edn</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Edn</span>.<span class="constructor">Json</span>.json
 <span class="keyword">end</span></code></body></html>
