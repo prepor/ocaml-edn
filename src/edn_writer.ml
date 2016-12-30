@@ -15,30 +15,34 @@ let rec write buf (edn : Edn_common.value) =
   | `Bool v -> write_bool buf v
   | `Null -> write_nil buf
   | `Tag v -> write_tag buf v
-and write_and_whitespace buf edn =
-  write buf edn;
-  Buffer.add_char buf ' ';
+and write_whitespaced buf xs =
+  let n = List.length xs - 1 in
+  List.iteri (fun i x ->
+      write buf x;
+      if i < n then Buffer.add_char buf ' ')
+    xs;
 and write_assoc buf xs =
   Buffer.add_char buf '{';
-  List.iter (fun (k, v) ->
+  let n = List.length xs - 1 in
+  List.iteri (fun i (k, v) ->
       write buf k;
       Buffer.add_char buf ' ';
       write buf v;
-      Buffer.add_char buf ' ';)
+      if i < n then Buffer.add_char buf ' ';)
     xs;
   Buffer.add_char buf '}';
 and write_list buf xs =
   Buffer.add_char buf '(';
-  List.iter (write_and_whitespace buf) xs;
+  write_whitespaced buf xs;
   Buffer.add_char buf ')'
 and write_vector buf xs =
   Buffer.add_char buf '[';
-  List.iter (write_and_whitespace buf) xs;
+  write_whitespaced buf xs;
   Buffer.add_char buf ']'
 and write_set buf xs =
   Buffer.add_char buf '#';
   Buffer.add_char buf '{';
-  List.iter (write_and_whitespace buf) xs;
+  write_whitespaced buf xs;
   Buffer.add_char buf '}'
 and write_int buf v =
   Buffer.add_string buf (string_of_int v)
