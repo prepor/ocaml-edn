@@ -21,7 +21,7 @@ let basic_parsing1 _ =
   edn_roundtrip "symbol with namespace" "bar/foo:#" (`Symbol ((Some "bar"), "foo:#"));
   edn_roundtrip "keyword" ":foo" (`Keyword (None, "foo"));
   edn_roundtrip "keyword with namespace" ":bar/foo:#" (`Keyword ((Some "bar"), "foo:#"));
-  edn_roundtrip "standalone symbols" "(+ - . )" (`List [`Symbol (None, "+");
+  edn_roundtrip "standalone symbols" "(+ - .)" (`List [`Symbol (None, "+");
                                                    `Symbol (None, "-");
                                                    `Symbol (None, ".");]);
 
@@ -44,16 +44,16 @@ let basic_parsing1 _ =
 
   edn_roundtrip "decimal" "123.123M" (`Decimal "123.123");
 
-  edn_roundtrip "list" "(1 \"2\" :a )" (`List [`Int 1; `String "2"; `Keyword (None, "a")]);
+  edn_roundtrip "list" "(1 \"2\" :a)" (`List [`Int 1; `String "2"; `Keyword (None, "a")]);
 
-  edn_roundtrip "vector" "[1 \"2\" :a ]" (`Vector [`Int 1; `String "2"; `Keyword (None, "a")]);
+  edn_roundtrip "vector" "[1 \"2\" :a]" (`Vector [`Int 1; `String "2"; `Keyword (None, "a")]);
 
-  edn_roundtrip "map" "{:a 1 \"foo\" :bar [1 2 3 ] four }"
+  edn_roundtrip "map" "{:a 1 \"foo\" :bar [1 2 3] four}"
     (`Assoc [(`Keyword (None, "a"), `Int 1);
              (`String "foo", `Keyword (None, "bar"));
              (`Vector [`Int 1; `Int 2; `Int 3], `Symbol (None, "four"))]);
 
-  edn_roundtrip "set" "#{1 \"2\" :a }" (`Set [`Int 1; `String "2"; `Keyword (None, "a")]);
+  edn_roundtrip "set" "#{1 \"2\" :a}" (`Set [`Int 1; `String "2"; `Keyword (None, "a")]);
 
   edn_roundtrip "tag" "#myapp/Person \"Andrew\""
     (`Tag ((Some "myapp"), "Person", `String "Andrew"));
@@ -62,14 +62,14 @@ let basic_parsing1 _ =
 
   edn_parse "discard" "[1 2 #_foo 42]" (`Vector [`Int 1; `Int 2; `Int 42]);
 
-  edn_parse "ignore commas" "{:a 1, \"foo\" :bar, [1 2 3 ] four }"
+  edn_parse "ignore commas" "{:a 1, \"foo\" :bar, [1 2 3] four}"
     (`Assoc [(`Keyword (None, "a"), `Int 1);
              (`String "foo", `Keyword (None, "bar"));
              (`Vector [`Int 1; `Int 2; `Int 3], `Symbol (None, "four"))]);
 
 
   edn_roundtrip "nested"
-    "[1 {:foo (1 2 ) } #{\"hello\" } ]"
+    "[1 {:foo (1 2)} #{\"hello\"}]"
     (`Vector [`Int 1;
               `Assoc [(`Keyword (None, "foo"), `List [`Int 1; `Int 2])];
               `Set [`String "hello"]]);
