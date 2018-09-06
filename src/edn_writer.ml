@@ -82,4 +82,4 @@ and write_char buf v =
 let to_string edn =
   let buf = Buffer.create 256 in
   write buf edn;
-  Buffer.to_bytes buf
+  Buffer.contents buf
