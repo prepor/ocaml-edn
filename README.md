@@ -1,5 +1,8 @@
 edn — Parsing OCaml library for EDN format
 -------------------------------------------------------------------------------
+
+[![Build Status](https://travis-ci.org/prepor/ocaml-edn.svg?branch=master)](https://travis-ci.org/prepor/ocaml-edn)
+
 %%VERSION%%
 
 This library implements [EDN][edn] parser and generator for OCaml.
