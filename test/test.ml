@@ -4,7 +4,7 @@ let edn_parse msg s expected =
   assert_equal ~msg ~printer: Edn.to_string
                expected (Edn.from_string s)
 
-let edn_write msg e s =
+let edn_write _msg e s =
   assert_equal ~msg: ((Edn.to_string e) ^ " " ^ s)
                s (Edn.to_string e)
 
