@@ -6,19 +6,11 @@ license: "MIT"
 bug-reports: "http://github.com/prepor/ocaml-edn/issues"
 dev-repo: "https://github.com/prepor/ocaml-edn.git"
 doc: "https://prepor.github.io/ocaml-edn/doc"
-build:
-[[ "ocaml" "pkg/pkg.ml" "build"
-           "--pinned" "%{pinned}%" ]]
-build-test: [[
-  "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "true"
-  "ocaml" "pkg/pkg.ml" "test" ]]
+build: ["dune" "build" "-p" name "-j" jobs]
+build-test: ["dune" "runtest" "-p" name "-j" jobs]
 depends: [
-  "ocamlfind" {build}
+  "dune" {build}
   "menhir" {build}
-  "topkg" {build}
   "oUnit" {test}
-]
-depopts: [
-  "cconv"
 ]
 available: [ocaml-version >= "4.02.0"]

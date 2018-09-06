@@ -1,0 +1,4 @@
+(library
+  (name edn_cconv)
+  (public_name edn.cconv)
+  (libraries edn cconv))

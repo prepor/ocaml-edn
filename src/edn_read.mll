@@ -48,7 +48,7 @@ rule read =
   | newline  { next_line lexbuf; read lexbuf }
   | int      { INT (int_of_string v) }
   | big_int  { BIG_INT v }
-  | float    { FLOAT (float_of_string (Lexing.lexeme lexbuf)) }
+  | float    { let _ = v in FLOAT (float_of_string (Lexing.lexeme lexbuf)) }
   | decimal  { DECIMAL v }  
   | symbol   { SYMBOL (Lexing.lexeme lexbuf) }
   | q_symbol { Q_SYMBOL (prefix, v) }
