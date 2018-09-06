@@ -1,5 +1,3 @@
-open Lexing
-
 type t = Edn_common.value
 
 include Edn_writer

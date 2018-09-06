@@ -122,4 +122,4 @@ let values o =
 let combine (first : Edn_common.value) (second : Edn_common.value) =
   match (first, second) with
   | (`Assoc a, `Assoc b) -> (`Assoc (a @ b) : Edn_common.value)
-  | (a, b) -> raise (Invalid_argument "Expected two objects, check inputs")
+  | (_, _) -> raise (Invalid_argument "Expected two objects, check inputs")

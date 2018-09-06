@@ -1,5 +1,3 @@
-type 'a or_error = [ `Ok of 'a | `Error of string ]
-
 type t = Edn.t
 
 let map_keys =

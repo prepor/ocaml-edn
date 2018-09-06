@@ -1,0 +1,8 @@
+(menhir
+  (modules edn_parser))
+
+(ocamllex edn_read)
+
+(library
+  (name edn)
+  (public_name edn))
