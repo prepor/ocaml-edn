@@ -7,6 +7,7 @@ This library implements [EDN][edn] parser and generator for OCaml.
 Homepage: https://github.com/prepor/edn
 Contact: Andrew Rudenko `<ceo@prepor.ru>`
 
+
 ## Installation
 
 edn can be installed with `opam`:
@@ -29,7 +30,7 @@ There is [cconv][cconv] encoder/decoder in `edn.cconv` package. You can use it w
 
 ``` ocaml
 type book = { title : string; quantity : int} [@@deriving cconv]
-type library = { books : book list } [@@deriving cconv]
+type library = { books : book list } [@@deriving cconv];;
 
 Edn_cconv.of_string_exn decode_library "{:books [{:title \"The Catcher in the Rye\" :quantity 10}]}";;
 - : library = {books = [{title = "The Catcher in the Rye"; quantity = 10}]}
