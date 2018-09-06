@@ -1,3 +1,11 @@
+v0.1.6 2018-09-06
+--------------------------
+
+thanks to @Leonidas-from-XIV
+
+- compatibility with OCaml 4.06
+- migration to Dune
+
 v0.1.5 2016-12-30
 --------------------------
 
