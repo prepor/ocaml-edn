@@ -1,6 +1,0 @@
-PKG ounit topkg cconv
-S src
-B _build/src
-
-FLG -short-paths
-
