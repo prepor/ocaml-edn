@@ -13,4 +13,7 @@ depends: [
   "menhir" {build}
   "ounit" {test}
 ]
+depopts: [
+  "cconv"
+]
 available: [ocaml-version >= "4.02.0"]
