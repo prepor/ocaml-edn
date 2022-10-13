@@ -21,7 +21,7 @@ val from_string : string -> t
 
 val from_channel : in_channel -> t
 
-val stream_from_channel : in_channel -> t Stream.t
+val seq_from_channel : in_channel -> t Seq.t
 
 module Errors : sig
   exception Error of string

@@ -1,7 +1,7 @@
 edn — Parsing OCaml library for EDN format
 -------------------------------------------------------------------------------
 
-[![Build Status](https://travis-ci.org/prepor/ocaml-edn.svg?branch=master)](https://travis-ci.org/prepor/ocaml-edn)
+[![CI](https://github.com/prepor/ocaml-edn/actions/workflows/ci.yml/badge.svg)](https://github.com/prepor/ocaml-edn/actions/workflows/ci.yml)
 
 %%VERSION%%
 
@@ -49,4 +49,3 @@ distribution.
 [edn]: https://github.com/edn-format/edn
 [cconv]: https://github.com/c-cube/cconv/
 [doc]: https://prepor.github.io/ocaml-edn/doc
-

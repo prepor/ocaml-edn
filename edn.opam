@@ -1,19 +1,21 @@
-opam-version: "1.2"
+opam-version: "2.0"
+synopsis: "Parsing OCaml library for EDN format"
+description:
+  "This library implements EDN parser and generator for OCaml."
 maintainer: "Andrew Rudenko <ceo@prepor.ru>"
 authors: "Andrew Rudenko <ceo@prepor.ru>"
 homepage: "http://github.com/prepor/ocaml-edn"
-license: "MIT"
+license: "ISC"
 bug-reports: "http://github.com/prepor/ocaml-edn/issues"
-dev-repo: "https://github.com/prepor/ocaml-edn.git"
+dev-repo: "git+https://github.com/prepor/ocaml-edn.git"
 doc: "https://prepor.github.io/ocaml-edn/doc"
-build: ["dune" "build" "-p" name "-j" jobs]
-build-test: ["dune" "runtest" "-p" name "-j" jobs]
+build: [["dune" "build" "-p" name "-j" jobs "@runtest" {with-test}]]
 depends: [
-  "dune" {build}
-  "menhir" {build}
-  "ounit" {test}
+  "ocaml" {>= "4.07.0"}
+  "dune" {>= "2.2.0"}
+  "menhir"
+  "ounit2" {with-test}
 ]
 depopts: [
   "cconv"
 ]
-available: [ocaml-version >= "4.02.0"]

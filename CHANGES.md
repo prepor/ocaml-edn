@@ -1,3 +1,10 @@
+(unreleased)
+--------------------------
+
+- change stream_from_channel to seq_from_channel
+- compatibility with latest menhir and OCaml 5.0
+- drop support for OCaml < 4.07
+
 v0.1.6 2018-09-06
 --------------------------
 
@@ -28,7 +35,7 @@ v0.1.3 2016-08-10
 - support escaped quotes
 - int parsing fix
 
-v0.1.2 2016-06-29 
+v0.1.2 2016-06-29
 --------------------------
 
 - oasis changed to _tags + topkg
