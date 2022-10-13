@@ -1,4 +1,4 @@
-(unreleased)
+v0.2.0 2022-10-13
 --------------------------
 
 - change stream_from_channel to seq_from_channel
