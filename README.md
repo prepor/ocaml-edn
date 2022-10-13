@@ -7,7 +7,7 @@ edn — Parsing OCaml library for EDN format
 
 This library implements [EDN][edn] parser and generator for OCaml.
 
-Homepage: https://github.com/prepor/edn
+Homepage: https://github.com/prepor/ocaml-edn
 Contact: Andrew Rudenko `<ceo@prepor.ru>`
 
 
